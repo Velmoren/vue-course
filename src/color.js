@@ -2,9 +2,26 @@ export default {
   //вызывается однократно, при первичном связывании директивы с элементом. Здесь можно поместить код инициализации.
   bind(el, bindings, vnode) {
     //аргумент атрибута (тот что после двоеточия) достаем из bindings.arg
+
+    //достаем модификатор font (указывается после аргумента через точку) можно передать сколько угодно
+    const fontModifier = bindings.modifiers['font']
+
+    if(fontModifier) {
+      el.style.fontSize = '30px'
+    }
+
     const arg = bindings.arg
-    //передавая строку, например 'red' как значение атрибута мы можем указать его из bindings.value
-    el.style[arg] = bindings.value
+    const delayModifier = bindings.modifiers['delay']
+    let delay = 0
+
+    if(delayModifier) {
+      delay = 2000
+    }
+
+    setTimeout(() => {
+      //передавая строку, например 'red' как значение атрибута мы можем указать его из bindings.value
+      el.style[arg] = bindings.value
+    }, delay)
   },
   //вызывается после вставки связанного элемента внутрь элемента родителя
   inserted(el, bindings, vnode) {
