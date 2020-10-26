@@ -1,21 +1,23 @@
 <template>
   <div>
-    <h2>{{msg}}</h2>
-
-    <app-car></app-car>
+    <h2 v-colored v-if="visible">{{title}}</h2>
+    <button @click="visible = !visible">Toggle</button>
+    <button @click="title = 'New title'">Change Titile</button>
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      title: 'Hello I am Vue!',
+      visible: true
     }
   }
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

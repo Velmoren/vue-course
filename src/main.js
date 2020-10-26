@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App'
-import Car from "./Car";
+import ColorDerective from './color'
 
-Vue.component('app-car', Car)
+Vue.directive('colored', ColorDerective)
 
 new Vue({
   el: '#app',
