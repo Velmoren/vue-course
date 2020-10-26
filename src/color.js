@@ -1,8 +1,10 @@
 export default {
   //вызывается однократно, при первичном связывании директивы с элементом. Здесь можно поместить код инициализации.
   bind(el, bindings, vnode) {
-    console.log('bind')
-    el.style.color = 'blue'
+    //аргумент атрибута (тот что после двоеточия) достаем из bindings.arg
+    const arg = bindings.arg
+    //передавая строку, например 'red' как значение атрибута мы можем указать его из bindings.value
+    el.style[arg] = bindings.value
   },
   //вызывается после вставки связанного элемента внутрь элемента родителя
   inserted(el, bindings, vnode) {

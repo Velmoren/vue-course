@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h2 v-colored v-if="visible">{{title}}</h2>
+    <h2 v-colored:background="'red'" v-if="visible">{{title}}</h2>
+    <h2 v-colored:color="'blue'" v-if="visible">{{title}}</h2>
+
     <button @click="visible = !visible">Toggle</button>
     <button @click="title = 'New title'">Change Titile</button>
   </div>
